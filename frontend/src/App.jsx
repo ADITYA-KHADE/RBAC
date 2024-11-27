@@ -5,10 +5,10 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <>
+    <div className="">
       <Toaster position="top-center" reverseOrder={false} />
       <Home />
-    </>
+    </div>
   );
 }
 

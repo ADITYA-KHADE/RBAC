@@ -50,7 +50,7 @@ const AddRole = ({ setReload, setAdd }) => {
         setRoleName("");
         setPermissions({ read: false, write: false, delete: false });
         setReload((prev) => !prev);
-        setAdd(false); // Close the overlay
+        setAdd(false);
       } else {
         console.error("Failed to add role");
       }

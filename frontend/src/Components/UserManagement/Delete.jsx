@@ -24,7 +24,7 @@ const Delete = ({ userData, setDeleteModal, setReload }) => {
       toast.error("Error deleting user. Please try again later.");
       console.error("Error deleting user:", err);
     } finally {
-      setIsDeleting(false); // Reset loading state
+      setIsDeleting(false);
     }
   };
 
