@@ -1,8 +1,8 @@
-# Content Management System
+# Role-Based Access Control (RBAC) UI
 
 ## Overview
 
-The **Content Management System (CMS)** is a full-stack application that allows users to efficiently manage content in a centralized system. It includes features for creating, viewing, updating, and deleting content. The application is designed to be user-friendly, scalable, and visually appealing with a modern UI.
+The **Role-Based Access Control (RBAC) UI** is a full-stack application that allows users to efficiently manage content in a centralized system. It includes features for creating, viewing, updating, and deleting content. The application is designed to be user-friendly, scalable, and visually appealing with a modern UI.
 
 ### Key Components:
 - **Frontend**: Built using React and Material UI (MUI) for a responsive and intuitive interface.
@@ -39,22 +39,47 @@ The **Content Management System (CMS)** is a full-stack application that allows 
 ```javascript
 const mongoose = require("mongoose");
 
-const contactSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    phone: { type: String, required: true },
-    company: { type: String },
-    jobtitle: { type: String },
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    role: {
+      type: String,
+      default: "user",
+    },
+    status: {
+      type: String,
+      default: "Active",
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Contact", contactSchema);
+module.exports = mongoose.model("User", UserSchema);
 
 ```
 
+```javascript
+const mongoose = require("mongoose");
+
+const roleSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    permissions: { type: [String], required: true },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Role", roleSchema);
+
+```
 
 
 ## Setup Instructions
@@ -64,8 +89,8 @@ module.exports = mongoose.model("Contact", contactSchema);
 To get started, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/ADITYA-KHADE/Erino-content-management.git
-cd Erino-content-management
+git https://github.com/ADITYA-KHADE/RBAC.git
+cd RBAC
 ```
 
 ## 2. Add ENV file 

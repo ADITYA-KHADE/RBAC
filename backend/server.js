@@ -25,10 +25,11 @@ app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api/role", roleRoutes);
 
-// app.use(express.static(path.join(__dirname, "../frontend", "dist")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
-// });
+app.use(express.static(path.join(__dirname, "../frontend", "dist")));
+app.use(express.static(path.join(__dirname, "../frontend", "public")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is Listening on http://localhost:${PORT}`);
