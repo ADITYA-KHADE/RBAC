@@ -62,7 +62,7 @@ const UserManagement = () => {
       {/* Header Section */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg shadow-md mb-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold mb-4 md:mb-0">All Users</h1>
+          <h1 className="text-3xl font-bold mb-2 md:mb-0">All Users</h1>
           <button
             onClick={() => setAdd(true)}
             className="bg-white text-blue-600 px-6 py-2 rounded-full shadow-md hover:bg-blue-100 transition duration-300 font-semibold"
